@@ -3,6 +3,8 @@ import "./App.css";
 // import axios from "axios";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
+import QuickLinks from "./Components/QuickLinks/QuickLinks";
+import NutritionOfTheDay from "./Components/NutritionOfTheDay/NutritionOfTheDay";
 import styled from "styled-components";
 
 // https://cloud.ouraring.com/docs/ <- API documentation
@@ -10,7 +12,7 @@ import styled from "styled-components";
 const Container = styled.div`
   .App {
     background: #f4f6f7;
-    height: 100vh;
+    height: 150vh;
   }
 `;
 
@@ -55,6 +57,8 @@ function App() {
       <div className="App">
         <Header />
         <Home />
+        <QuickLinks />
+        <NutritionOfTheDay />
         {/* {sleepData.map((data) => (
         <div key={data.summary_date}>
           <h1>{data.score}</h1>
