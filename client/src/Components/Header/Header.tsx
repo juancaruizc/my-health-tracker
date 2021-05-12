@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import myhealthtrackerlogo from "./myHealthTrackerLogo.svg";
+import myhealthtrackerlogo from "./myhealthtrackerlogo.svg";
 import downarrow from "./downArrow.svg";
 import defaultprofilepic from "./profilepic.svg";
 import styled from "styled-components";
