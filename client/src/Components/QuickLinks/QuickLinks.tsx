@@ -30,6 +30,7 @@ const Container = styled.div`
   }
 
   h2 {
+    color: white;
     text-align: left;
   }
 
@@ -38,7 +39,7 @@ const Container = styled.div`
   }
 `;
 
-function QuickLinks() {
+const QuickLinks: React.FC = () => {
   return (
     <Container>
       <div className="main">
@@ -62,6 +63,6 @@ function QuickLinks() {
       </div>
     </Container>
   );
-}
+};
 
 export default QuickLinks;

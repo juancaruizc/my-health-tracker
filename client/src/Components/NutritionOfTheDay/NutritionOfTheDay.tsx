@@ -15,17 +15,18 @@ const Container = styled.div`
   }
 
   .nutritionDiv {
-    background-color: white;
+    background-color: #15171b;
     border-radius: 10px;
     height: 250px;
   }
 
   h2 {
     text-align: left;
+    color: white;
   }
 `;
 
-function NutritionOfTheDay() {
+const NutritionOfTheDay: React.FC = () => {
   return (
     <Container>
       <div className="main">
@@ -38,6 +39,6 @@ function NutritionOfTheDay() {
       </div>
     </Container>
   );
-}
+};
 
 export default NutritionOfTheDay;

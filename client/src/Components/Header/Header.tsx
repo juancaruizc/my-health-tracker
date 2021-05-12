@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import myhealthtrackerlogo from "./myhealthtrackerlogo.svg";
-import downarrow from "./downarrow.svg";
-import defaultprofilepic from "./defaultprofilepic.svg";
+import myhealthtrackerlogo from "./myHealthTrackerLogo.svg";
+import downarrow from "./downArrow.svg";
+import defaultprofilepic from "./profilepic.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import SleepModal from "./NavModals/SleepModal";
+import NutritionModal from "./NavModals/NutritionModal";
+import TrainingModal from "./NavModals/TrainingModal";
 
 const Container = styled.div`
   nav {
@@ -19,45 +22,59 @@ const Container = styled.div`
   .profilepic {
     width: 40px;
     height: 40px;
-    border-radius: 10px;
-    margin-left: 1950px;
+    border-radius: 12px;
+    margin-left: 1900px;
     margin-top: 20px;
   }
 
   .navLinks {
     display: flex;
     align-items: center;
-    width: 100px;
+    width: 120px;
     justify-content: center;
-    /* flex-direction: column; */
+    margin-top: 7px;
   }
 
   .downarrow {
     margin-left: 10px;
+    color: white;
   }
 
   .main {
-    background-color: white;
+    background-color: #15171b;
+    height: 82px;
   }
-
   .navModal {
     display: flex;
     flex-direction: column;
     width: 200px;
+    /* height: 30px; */
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+
+  .modal {
+    height: 50px;
+    background-color: red;
+    border-radius: 4px;
   }
 `;
-function Header() {
-  const [sleepModal, setSleepModal] = useState(false);
-  const [nutritionModal, setNutritionModal] = useState(false);
-  const [trainingModal, setTrainingModal] = useState(false);
-  const nav = document.querySelector(".navLinks");
+const Header: React.FC = () => {
+  // const [sleepModal, setSleepModal] = useState(false);
+  // const [nutritionModal, setNutritionModal] = useState(false);
+  // const [trainingModal, setTrainingModal] = useState(false);
+  // const nav = document.querySelector(".navLinks");
 
-  function openModal() {
-    setSleepModal(true);
-  }
-  function closeModal() {
-    setSleepModal(false);
-  }
+  // function openModal() {
+  //   setSleepModal(true);
+  // }
+  // function closeModal() {
+  //   setSleepModal(false);
+  // }
   return (
     <Container>
       <div className="main">
@@ -65,52 +82,42 @@ function Header() {
           <img className="logo" src={myhealthtrackerlogo} alt="" />
           <div
             className="navLinks"
-            onMouseOver={openModal}
-            onMouseLeave={closeModal}
+            // onMouseOver={openModal}
+            // onMouseLeave={closeModal}
           >
-            <Link style={{ textDecoration: "none", color: "#1B212C" }} to="/">
-              Sleep
-            </Link>
-            <img className="downarrow" src={downarrow} alt="" />
-          </div>
-
-          {/* {sleepModal && (
-            <div className="navModal">
-              <Link
-                style={{
-                  textDecoration: "none",
-                  color: "#1B212C",
-                  fontSize: "14px",
-                }}
-                to=""
-              >
-                Sleep Dashboard
+            <div className="link">
+              <Link style={{ textDecoration: "none", color: "white" }} to="/">
+                Sleep
               </Link>
-              <Link
-                style={{
-                  textDecoration: "none",
-                  color: "#1B212C",
-                  fontSize: "14px",
-                }}
-                to=""
-              >
-                Oura Dashboard
-              </Link>
+              <img className="downarrow" src={downarrow} alt="" />
             </div>
-          )} */}
-
-          <div className="navLinks">
-            <Link style={{ textDecoration: "none", color: "#1B212C" }} to="/">
-              Nutrition
-            </Link>{" "}
-            <img className="downarrow" src={downarrow} alt="" />
+            {/* <div className="modal">
+              <SleepModal />
+            </div> */}
           </div>
 
           <div className="navLinks">
-            <Link style={{ textDecoration: "none", color: "#1B212C" }} to="/">
-              Training
-            </Link>
-            <img className="downarrow" src={downarrow} alt="" />
+            <div className="link">
+              <Link style={{ textDecoration: "none", color: "white" }} to="/">
+                Nutrition
+              </Link>{" "}
+              <img className="downarrow" src={downarrow} alt="" />
+            </div>
+            {/* <div className="modal">
+              <NutritionModal />
+            </div> */}
+          </div>
+
+          <div className="navLinks">
+            <div className="link">
+              <Link style={{ textDecoration: "none", color: "white" }} to="/">
+                Training
+              </Link>
+              <img className="downarrow" src={downarrow} alt="" />
+            </div>
+            {/* <div className="modal">
+              <TrainingModal />
+            </div> */}
           </div>
 
           <img className="profilepic" src={defaultprofilepic} alt="" />
@@ -118,6 +125,6 @@ function Header() {
       </div>
     </Container>
   );
-}
+};
 
 export default Header;
