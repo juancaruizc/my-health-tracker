@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import sleepDash from "./sleepDashboard.svg";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   .dashboard {
-    background-color: white;
+    background-color: #15171b;
     width: 250px;
-    height: 200px;
+    height: 260px;
     border-radius: 10px;
   }
 
@@ -36,18 +38,33 @@ const Container = styled.div`
 
   h3 {
     font-size: 14px;
+    text-align: left;
+    margin-left: 16px;
+    color: white;
+  }
+
+  img {
+    width: 250px;
+    border-radius: 10px 10px 0px 0px;
   }
 `;
 
 const QuickLinks: React.FC = () => {
+  let history = useHistory();
+
+  const pushToSleep = () => {
+    history.push("/sleep");
+  };
+
   return (
     <Container>
       <div className="main">
         <div className="quickLinks">
           <h2>Quick Links</h2>
 
-          <div className="dashboardsDiv">
+          <div className="dashboardsDiv" onClick={pushToSleep}>
             <div className="dashboard">
+              <img src={sleepDash} alt="" />
               <h3>Sleep Dashboard</h3>
             </div>
 
