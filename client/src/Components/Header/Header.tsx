@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import SleepModal from "./NavModals/SleepModal";
 import NutritionModal from "./NavModals/NutritionModal";
 import TrainingModal from "./NavModals/TrainingModal";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   nav {
@@ -63,7 +64,13 @@ const Container = styled.div`
     border-radius: 4px;
   }
 `;
+
 const Header: React.FC = () => {
+  let history = useHistory();
+
+  const pushToHome = () => {
+    history.push("/");
+  };
   // const [sleepModal, setSleepModal] = useState(false);
   // const [nutritionModal, setNutritionModal] = useState(false);
   // const [trainingModal, setTrainingModal] = useState(false);
@@ -79,14 +86,22 @@ const Header: React.FC = () => {
     <Container>
       <div className="main">
         <nav>
-          <img className="logo" src={myhealthtrackerlogo} alt="" />
+          <img
+            className="logo"
+            src={myhealthtrackerlogo}
+            alt=""
+            onClick={pushToHome}
+          />
           <div
             className="navLinks"
             // onMouseOver={openModal}
             // onMouseLeave={closeModal}
           >
             <div className="link">
-              <Link style={{ textDecoration: "none", color: "white" }} to="/">
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to="/sleep"
+              >
                 Sleep
               </Link>
               <img className="downarrow" src={downarrow} alt="" />

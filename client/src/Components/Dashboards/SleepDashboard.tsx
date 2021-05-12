@@ -389,7 +389,7 @@ const SleepDashboard = () => {
   return (
     <Container>
       <div className="main">
-        <h1>Sleep</h1>
+        <h1>My Sleep</h1>
         <div className="sleepDashboard">
           <div className="titles">
             <h2>2021</h2>
